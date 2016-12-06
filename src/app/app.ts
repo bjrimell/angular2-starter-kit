@@ -13,19 +13,26 @@ import {
   ROUTER_DIRECTIVES,
 } from 'angular2/router';
 import {Home} from './pages/home/home.component';
+import {Test} from './pages/test/test.component';
+import {Header} from './shared/components/header/header.component';
+import {Footer} from './shared/components/footer/footer.component';
 
 @Component({
   selector: 'app',
   directives: [
     ROUTER_DIRECTIVES,
+    Header,
+    Footer
   ],
   providers: [
   ],
-  template: `<router-outlet></router-outlet>`
+  template: `<header></header><router-outlet></router-outlet><footer></footer>`
 })
 @RouteConfig([
   // main page
   { path: '/',   name: 'Home', component: Home, useAsDefault: true },
+  // test page
+  { path: '/test',   name: 'Test', component: Test, useAsDefault: false },
   // default route
   { path: '/**', name: 'Root', redirectTo: ['/Home'] },
 
